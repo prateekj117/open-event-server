@@ -7,7 +7,7 @@ from app.api.users import UserList, UserDetail, UserRelationship
 from app.api.user_emails import UserEmailListAdmin, UserEmailListPost, UserEmailList, UserEmailDetail, \
     UserEmailRelationship
 from app.api.user_favourite_events import UserFavouriteEventListPost, UserFavouriteEventList, \
-    UserFavouriteEventDetail, UserFavouriteEventRelationship
+    UserFavouriteEventDetail, UserFavouriteEventRelationship, DeleteFavouriteEventById
 from app.api.notifications import NotificationList, NotificationListAdmin, NotificationDetail,\
     NotificationRelationship, NotificationActionDetail, NotificationActionRelationship, NotificationActionList
 from app.api.email_notifications import EmailNotificationList, EmailNotificationListAdmin, EmailNotificationDetail, \
@@ -343,6 +343,8 @@ api.route(UserFavouriteEventList, 'user_favourite_events_list', '/user-favourite
           '/users/<int:user_id>/user-favourite-events')
 api.route(UserFavouriteEventDetail, 'user_favourite_event_detail',
           '/user-favourite-events/<int:id>')
+api.route(DeleteFavouriteEventById, 'user_favourite_event_detail_event_id',
+          '/user-favourite-events-by-event-id')
 api.route(UserFavouriteEventRelationship, 'user_favourite_event_user',
           '/user-favourite-events/<int:id>/relationships/user')
 api.route(UserFavouriteEventRelationship, 'user_favourite_event_event',

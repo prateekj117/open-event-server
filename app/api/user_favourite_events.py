@@ -86,6 +86,26 @@ class UserFavouriteEventDetail(ResourceDetail):
                   'model': UserFavouriteEvent}
 
 
+class DeleteFavouriteEventById(ResourceDetail):
+    @classmethod
+    def before_delete(self, args, kwargs):
+        """
+        before post method to check for required relationship and proper permission
+        :param args:
+        :param kwargs:
+        :param data:
+        :return:
+        """
+        print(' @@@@@@@@@@@@ ')
+    view_kwargs = True
+    print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+    schema = UserFavouriteEventSchema
+    methods = ['GET', 'DELETE']
+    data_layer = {'session': db.session,
+                  'model': UserFavouriteEvent,
+                  'methods': {'before_delete': before_delete}}
+
+
 class UserFavouriteEventRelationship(ResourceRelationship):
     """
     User Favourite Events Relationship
